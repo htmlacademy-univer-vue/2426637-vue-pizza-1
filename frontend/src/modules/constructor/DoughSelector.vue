@@ -74,7 +74,7 @@ const getImage = (image) => {
 
     transition: 0.3s;
 
-    border-radius: 50%;
+    border-radius: 50% ;
   }
 
   b {
