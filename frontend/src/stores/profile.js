@@ -1,16 +1,8 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
+import addressesJSON from "@/mocks/addresses.json";
 
-export const useProfileStore = defineStore('profile', {
-	state: () => ({
-		profile: {
-			id: "",
-			name: "",
-			email: "",
-			avatar: "",
-			phone: "",
-			addresses:[]
-		},
-	}),
-	getters: {},
-	actions: {},
-})
+export const useProfileStore = defineStore("profile", {
+  state: () => ({
+    addresses: addressesJSON,
+  }),
+});

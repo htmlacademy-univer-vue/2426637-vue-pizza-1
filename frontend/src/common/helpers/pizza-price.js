@@ -13,6 +13,12 @@ export const pizzaPrice = (pizza) => {
 
   const saucePrice =
     data.sauces.find((item) => item.id === pizza.sauceId)?.price ?? 0;
+
+  /*
+   * Здесь мы при помощи метода map превращаем массив ингредиентов
+   * в массив значений, соответствующих итоговой стоимости каждого из них - просто умножив известную цену на количество.
+   * После чего методом reduce вычисляем сумму всех элементов массива, что даст нам общую стоимость всех ингредиентов.
+   */
   const ingredientsPrice = data.ingredients
     .map((item) => ingredients[item.id] * item.price)
     .reduce((acc, item) => acc + item, 0);

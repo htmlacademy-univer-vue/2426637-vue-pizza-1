@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import { ingredientsQuantity } from "@/common/helpers/ingredientsQuantity";
-import { pizzaPrice } from "@/common/helpers/pizzaPrice";
+import { ingredientsQuantity } from "@/common/helpers/ingredients-quantity";
+import { pizzaPrice } from "@/common/helpers/pizza-price";
 import { useDataStore } from "@/stores/data";
 
 export const usePizzaStore = defineStore("pizza", {
@@ -88,6 +88,7 @@ export const usePizzaStore = defineStore("pizza", {
         (item) => item.ingredientId === ingredientId
       );
 
+     
       if (ingredientIdx === -1 && count > 0) {
         this.addIngredient(ingredientId);
         return;
@@ -95,7 +96,6 @@ export const usePizzaStore = defineStore("pizza", {
         return;
       }
 
-  
       if (count === 0) {
         this.ingredients.splice(ingredientIdx, 1);
         return;
