@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="fade" appear>
+    
       <app-popup>
         <router-link :to="{ name: redirectRouteName }" class="close">
           <span class="visually-hidden">Закрыть попап</span>
@@ -13,7 +13,7 @@
           </router-link>
         </app-popup-button>
       </app-popup>
-    </transition>
+   
   </div>
 </template>
 

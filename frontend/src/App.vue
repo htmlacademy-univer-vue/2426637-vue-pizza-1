@@ -1,9 +1,8 @@
 <template>
   <app-layout>
     <router-view v-slot="{ Component }">
-      <transition name="slide" mode="out-in">
+     
         <component :is="Component" />
-      </transition>
     </router-view>
   </app-layout>
 </template>
