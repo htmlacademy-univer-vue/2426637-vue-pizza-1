@@ -270,7 +270,7 @@ const submit = async () => {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 @import "@/assets/scss/ds-system/ds.scss";
 @import "@/assets/scss/mixins/mixins.scss";
 
