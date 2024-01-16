@@ -1,8 +1,9 @@
 <template>
   <app-layout>
     <router-view v-slot="{ Component }">
-     
+      <transition name="slide" mode="out-in">
         <component :is="Component" />
+      </transition>
     </router-view>
   </app-layout>
 </template>
@@ -13,7 +14,7 @@ import { onMounted, ref } from "vue";
 import { useDataStore } from "@/stores/data";
 import { useAuthStore } from "@/stores/auth";
 import JwtService from "@/services/jwt/jwt.service";
-import  router  from "@/router";
+import router from "@/router";
 import { useRoute } from "vue-router";
 
 const dataStore = useDataStore();
@@ -48,4 +49,24 @@ onMounted(() => {
 
 <style lang="scss">
 @import "@/assets/scss/app.scss";
+.slide-enter-active,
+.slide-leave-active {
+  transition: all .25s ease-in-out;
+}
+
+.slide-enter-from {
+  opacity: 0;
+  transform: translateX(25%);
+}
+
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-25%);
+}
+
+.slide-enter-to,
+.slide-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
 </style>
