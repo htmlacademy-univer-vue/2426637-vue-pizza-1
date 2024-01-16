@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { pizzaPrice } from "@/common/helpers/pizzaPrice";
+import { pizzaPrice } from "@/common/helpers/pizza-price";
 import { useDataStore } from "@/stores/data";
 
 export const useCartStore = defineStore("cart", {
@@ -82,6 +82,10 @@ export const useCartStore = defineStore("cart", {
     setMiscQuantity(miscId, count) {
       const miscIdx = this.misc.findIndex((item) => item.miscId === miscId);
 
+      /*
+       * Добавляем ингредиент, если его нет, а количество больше 0
+       * Если ингредиента нет, а количество 0 или меньше, то ничего не делаем
+       */
       if (miscIdx === -1 && count > 0) {
         this.misc.push({
           miscId,
@@ -92,6 +96,7 @@ export const useCartStore = defineStore("cart", {
         return;
       }
 
+      /* Удаляем ингредиент, если количество 0 */
       if (count === 0) {
         this.misc.splice(miscIdx, 1);
         return;
